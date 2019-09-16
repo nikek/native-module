@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Route module</title>
+</head>
+
+<body>
+  <button id=startBtn>Start</button>
+  <button id=aboutBtn>About</button>
+
+  <div id=text></div>
+
+  <script type="module">
+    import page from "https://unpkg.com/page@1.11.4/page.mjs";
+
+    page('/', () => text.textContent = "start");
+    page('/about', () => text.textContent = "about");
+
+    startBtn.addEventListener('click', () => page('/'))
+    aboutBtn.addEventListener('click', () => page('/about'))
+
+    page()
+  </script>
+
+</body>
+
+</html>
