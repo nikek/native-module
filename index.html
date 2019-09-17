@@ -11,21 +11,20 @@
 <body>
   <button id=startBtn>Start</button>
   <button id=aboutBtn>About</button>
-
   <div id=text></div>
 
   <script type="module">
     import page from "https://unpkg.com/page@1.11.4/page.mjs";
 
+    page.base(window.location.host.includes("github") ? "/native-module" : "")
+
     page('/', () => text.textContent = "start");
     page('/about', () => text.textContent = "about");
+    page()
 
     startBtn.addEventListener('click', () => page('/'))
     aboutBtn.addEventListener('click', () => page('/about'))
-
-    page()
   </script>
-
 </body>
 
 </html>
